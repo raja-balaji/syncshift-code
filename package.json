@@ -1,5 +1,8 @@
 {
+  "type": "module",
   "dependencies": {
+    "appwrite": "^11.0.0",
+    "dotenv": "^16.3.1",
     "firebase": "^9.23.0"
   }
 }
