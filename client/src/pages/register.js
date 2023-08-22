@@ -14,15 +14,9 @@ export default function Register({setTitle, appAcc}){
     if(pass1 !== pass2){
       return alert('Passwords must match');
     }
-    const accCreate = appAcc.create(ID.unique(), email, pass1).then(() => {
-      appAcc.createEmailSession(email, pass1).then((verif) => {
-        if(verif.current){
-          alert(verif);
-          setUser(verif);
-          alert('User Created');
-          window.loaction.href = '/checkin';
-        }
-      })
+    const accCreate = appAcc.create(ID.unique(), email, pass1).then((raf) => {
+       setUser(raf);
+       window.location.href = '/login';
     })
   };
   return (<>

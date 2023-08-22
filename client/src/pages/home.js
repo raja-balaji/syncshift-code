@@ -1,9 +1,23 @@
-export default function Home({setTitle}){
+
+export default function Home({setTitle, appAcc}){
   setTitle('SyncShift Login');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target[0].value.trim();
+    const pass = e.target[1].value.trim();
+
+    appAcc.createEmailSession(email, pass).then((er) => {
+      console.log(er);
+      window.location.href = '/checkin';
+    });
+    
+  };
+  
   return (<> 
     <h1 className="title">SyncShift</h1>
     <h3 className="headline">Shifting Management Tools</h3>
-    <form>
+    <form onSubmit={handleSubmit} >
       <div className="container">
         <div className="form_contents">
         <label>Username : </label>
@@ -12,7 +26,7 @@ export default function Home({setTitle}){
         <label>Password : </label>
         <input type="password" placeholder="Enter Password" name="password" required />
         
-        <button className="login" onClick={() => {window.location.href='/checkin'}}>Login</button>
+        <button className="login">Login</button>
         
         <input className="remember" type="checkbox" checked="checked" placeholder="Remember me" /><br />
 

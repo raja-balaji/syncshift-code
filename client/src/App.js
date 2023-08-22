@@ -25,7 +25,7 @@ function setTitle(title){
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home setTitle={setTitle} />
+    element: <Home setTitle={setTitle} appAcc={appAcc} />
   },
   {
     path: '/about',
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <Home setTitle={setTitle} />
+    element: <Home setTitle={setTitle} appAcc={appAcc} />
   },
   {
     path: '/newuser',
