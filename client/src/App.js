@@ -9,6 +9,7 @@ import Register from './pages/register';
 import ToS from './pages/tos';
 import Worklog from './pages/worklog';
 import Setting from './pages/settings';
+import MyAccount from './pages/account';
 import {Client, Account} from 'appwrite';
 import {config} from './config';
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Home setTitle={setTitle} appAcc={appAcc} />
+  },
+  {
+    path: '/myaccount',
+    element: <MyAccount setTitle={setTitle} appAcc={appAcc} />
   },
   {
     path: '/newuser',

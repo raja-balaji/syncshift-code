@@ -1,10 +1,8 @@
 import {ID} from 'appwrite';
-import {useCookies} from 'react-cookie';
 
 
 export default function Register({setTitle, appAcc}){
   setTitle('Create Account');
-  const [user, setUser] = useCookies(['user']);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +13,6 @@ export default function Register({setTitle, appAcc}){
       return alert('Passwords must match');
     }
     const accCreate = appAcc.create(ID.unique(), email, pass1).then((raf) => {
-       setUser(raf);
        window.location.href = '/login';
     })
   };
