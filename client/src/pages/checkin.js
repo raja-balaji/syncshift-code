@@ -1,4 +1,5 @@
 export default function Checkin({setTitle}){
+
   setTitle('Check-In Page');
   return (<>
   <h1 className="title">SyncShift</h1>

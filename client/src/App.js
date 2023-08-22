@@ -65,7 +65,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/settings',
-    element: <Setting setTitle={setTitle} />
+    element: <Setting setTitle={setTitle} appAcc={appAcc} />
   }
 ])
 function App() {
