@@ -6,13 +6,15 @@ export default function Register({setTitle, appAcc}){
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const email = e.target[0].value.trim();
-    const pass1 = e.target[1].value.trim();
-    const pass2 = e.target[2].value.trim();
+    const fname = e.target[0].value.trim();
+    const lname = e.target[1].value.trim();
+    const email = e.target[2].value.trim();
+    const pass1 = e.target[3].value.trim();
+    const pass2 = e.target[4].value.trim();
     if(pass1 !== pass2){
       return alert('Passwords must match');
     }
-    const accCreate = appAcc.create(ID.unique(), email, pass1).then((raf) => {
+    const accCreate = appAcc.create(ID.unique(), email, pass1, JSON.stringify({firstName: fname, lastName: lname})).then((raf) => {
        window.location.href = '/login';
     })
   };
@@ -26,6 +28,10 @@ export default function Register({setTitle, appAcc}){
       <p>Please fill in this form to create an account.</p>
       <hr />
  
+      <label htmlFor="finame"><b>First Name</b></label>
+      <input type="text" placeholder="Enter First Name" name="finame" required />
+      <label htmlFor="laname"><b>Last Name</b></label>
+      <input type="text" placeholder="Enter Last Name" name="laname" required />
       <label htmlFor="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" required />
 
